@@ -7,7 +7,7 @@ public class Main {
         ArrayList<String> arrayList = new ArrayList<>();
 
         while (true) {
-            System.out.println("Выберите операцию: \n 1.Добавить; 2.Показать; 3.Удалить; end - завершить работу");
+            System.out.println("Выберите операцию: \n 1.Добавить; 2.Показать; 3.Удалить; 4.Поиск продукта; end - завершить работу");
             String input = scanner.nextLine();
             if ("end".equals(input)) {
                 break;
@@ -52,7 +52,21 @@ public class Main {
                             System.out.println(i + 1 + ". " + arrayList.get(i));
                         }
                         break;
+                    case 4:
+                        System.out.println("Введите текст для поиска:");
+                        String search = scanner.nextLine();
+                        String queryLower = search.toLowerCase();
 
+                        int i = 0;
+                        System.out.println("Найдено:");
+                        for (String s : arrayList) {
+                            String string = s.toLowerCase();
+                            if (string.contains(queryLower)) {
+                                System.out.println(i + 1 + ". " + arrayList.get(i));
+                            }
+                            i++;
+                        }
+                        break;
                     default:
                         System.out.println("Введите корректную операцию!");
                         System.out.println();
